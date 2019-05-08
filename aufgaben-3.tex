@@ -1,0 +1,170 @@
+\section{Vorbereitung}
+
+\noindent{\large Arbeitsaufteilung:\par}
+\begin{table}[htb]
+\centering
+\caption{Arbeitsaufteilung in der Gruppe}
+\label{Arbeitsaufteilung}
+\begin{tabular}{c|ccc}
+\toprule
+Aufgabe & Lucas & Aleksandra & Timo\\
+\midrule
+Motivation &  & x & \\
+Literaturrecherche &  &  & x\\
+Lüfterschaltung & x & x & x\\
+Geschwindigkeitsmessanlage & x & x & x\\
+Dokumentation & x & x & x\\
+Diskussionen & x & x & x\\
+Bericht \& Spice & x &  & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent{\large Genutzte Materialien:\par}
+\begin{table}[htb]
+\centering
+\caption{Genutzte Materialien}
+\label{Materialien}
+\begin{tabular}{c|c}
+\toprule
+Bauteiltyp & Beschreibung\\
+\midrule
+Launchpad & Tiva C Series, 1x \\
+\hline
+Heißleiter & 
+\vtop{
+\hbox{\strut NTCLE100E3 (Vishay):}
+\hbox{\strut ~~~~$R_{25} = 10k\Omega$ (Toleranz $\pm 5\%$),}
+\hbox{\strut ~~~~$B_{25/85} = 3977K$ (Toleranz $\pm 0.75\%$), 1x}
+} \\
+\hline
+Lichtschranke & 
+\vtop{
+\hbox{\strut Emitter: V472P}
+\hbox{\strut Detektor: S472P}
+\hbox{\strut TELEFUNKEN Semiconductors}
+} \\
+\hline
+Transistor & BC547C (STMicroelectronics) \\
+\hline
+Speicherkondensatoren & diverse (Tolderanz $\pm 20\%$) \\
+\hline
+Kohleschichtwiderstände & diverse (Tolderanz $\pm 5\%$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+\section{Einleitung}
+
+\subsection{Motivation}
+
+
+\subsection{Literaturrecherche}
+
+
+\clearpage
+\section{Aufgaben}
+
+\subsection{Lüfterschaltung}
+
+\subsubsection{Materialien \& Methoden}
+
+\begin{figure}[htb]
+    \includegraphics[width=4cm]{./res/Luefter_1_Spice}
+    \caption{Aufbau der 1. Lüfterschaltung}
+    \label{fig:Lüfterschaltung1}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=12cm]{./res/Luefter_1_Aufbau}
+    \caption{Praktischer Aufbau der 1. Lüfterschaltung}
+    \label{fig:Lüfterschaltung1Praktisch}
+\end{figure}
+
+\newpage
+\noindent
+Durch folgende Rechnungen konnten wir auf die Widerstandswerte schließen: \\
+\\
+Wie in der Aufgabenstellung gefordert, soll die Leistung des NTCs auf $15 mW$ beschränkt sein. Hierfür wird für den vorhandenen Arbeitsbereich ($25^{\circ} C - 100^{\circ} C$) eine Berechnung des Widerstands $R_1$ benötigt. Der Widerstand bildet mit dem variablen Widerstandswert des NTCs den Gesamtwiderstand, von welchem aus die Leistung des NTCs berechnet werden kann. Vor die Basis des Transistors wird ein Widerstand geschalten, für welchen gilt: $R_B >> R_1$. Somit ist der Strom $I_B$ in den Rechnungen vernachlässigbar klein.\\
+\\
+% http://www.vishay.com/docs/29049/ntcle100.pdf
+Widerstand des NTCs bei $25^{\circ} C: 10 k\Omega$; $150^{\circ} C: 182,6 \Omega$ \\
+\\
+Berechnung des minimalen Widerstands $R_1$ zur Einhaltung der Leistungsvorgabe:
+\[ R_{ges} = 182.6 \Omega + R_1 \]
+\[ I_{ges} = \frac{3.3 V}{R_{ges}} \]
+\[ U_{NTC} = 182.6 \Omega \cdot I_{ges} \]
+\[ P_{NTC} = 182.6 \Omega \cdot \left(\frac{3.3 V}{R_{ges}}\right)^2 = 15\cdot10^{-3} W \]
+
+\gleichung{
+\begin{split}
+\frac{182.6 \Omega \cdot (3.3 V)^2}{(182.6 \Omega + R_1)^2} &= 15.10^{-3} W
+\\
+(182.6 \Omega + R_1)^2 &= \frac{182.6 \Omega \cdot (3.3 V)^2}{15.10^{-3} W}
+\\
+182.6 \Omega + R_1 &= 3.3 V \cdot \sqrt{\frac{182.6 \Omega}{15.10^{-3} W}}
+\\
+R_1 &= 3.3 V \cdot \sqrt{\frac{182.6 \Omega}{15.10^{-3} W}} - 182.6 \Omega
+\\
+R_1 &= 181.5 \Omega
+\end{split}
+}{}
+
+Daraus folgt, dass $R_1 > 181.5 \Omega$ gilt, da ansonsten über den NTC mehr als 15 mW abfallen würden. \\
+\\
+Da der NTC einen negativen Temperaturkoeffizienten besitzt, steigt sein Widerstand bei sinkender Betriebstemperatur und sinkt analog bei steigender Betriestemperatur. Daraus folgt ein geringerer Strom für Temperaturen unter $150^{\circ} C$ und damit einhergehend eine geringere Leistung am NTC. Unser Arbeitsbereich beschränkt sich auf 25 - 150 Grad, somit ist diese Folgerung ausreichend für unseren Anwendungsbereich. \\
+
+\newpage
+
+Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die vor den LEDs geschalteten Widerstände eine Spannung von jeweils $1.1 V$ abfallen. Wählt man einen Widerstand von $680 \Omega$, so beträgt der Strom $1.618 mA$. Dabei fallen über der LED genau $2.2 V$ ab. %Quelle
+
+\subsubsection{Aufgabe 2.1: Rechnung Lüfterschaltung 1}
+
+Laut Aufgabe soll ein Lüfter ab einer Temperatur von $49^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $50^{\circ} C$ einen Widerstandswert von $3605 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Da die Schaltschwelle bei $49^{\circ} C$ stattfinden soll, -nehmen wir als Widerstandswert des NTCs $3600 \Omega$ an.
+
+\[ R_{ges} = 3600 \Omega + R_1 \]
+\[ I_{ges} = \frac{U}{R_{ges}} = \frac{3.3 V}{3600 \Omega + R_1} \]
+
+\gleichung{
+\begin{split}
+U_{R1} = 0.7 V &= R_1 \cdot I_{ges} = R_1 \cdot \frac{3.3 V}{3600 \Omega + R_1}
+\\
+3.3 V \cdot R_1 &= 2520 V \cdot \Omega + 0.7 V \cdot R_1
+\\
+2.6 V \cdot R_1 &= 2520 V \cdot \Omega
+\\
+R_1 &= 969.23 \Omega \geq 181.5 \Omega
+\end{split}
+}{}
+
+\newpage
+\subsubsection{Aufgabe 2.2: Rechnung Lüfterschaltung 2}
+
+Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt dDer NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$.
+
+\[ R_{ges} = 1330 \Omega + R_1 + R_2\]
+\[ R_1 = R_2 \]
+\[ R_{ges} = 1330 \Omega + 2 \cdot R_1 \]
+\[ I_{ges} = \frac{U}{R_{ges}} = \frac{3.3 V}{1330 \Omega + 2 \cdot R_1} \]
+\[ U_{1} = 2 \cdot R_1 \cdot I_{ges} = 2 \cdot R_1 \cdot \frac{3.3 V}{1330 \Omega + 2 \cdot R_1} \]
+
+\gleichung{
+\begin{split}
+U_{R1} = 1.4 V &= \frac{6.6 V \cdot R_1}{1330 \Omega + 2 \cdot R_1}
+\\
+1.4 V \cdot (1330 \Omega + 2 \cdot R_1) &= 6.6 V \cdot R_1
+\\
+1862 V \cdot \Omega \cdot 2.8 V \cdot R_1 &= 6.6 V \cdot R_1
+\\
+R_1 &= 490 \Omega \geq 181.5 \Omega
+\end{split}
+}{}
+
+Überprüfung des Widerstandswertes bei $50^{\circ} C$ Schaltschwelle
+
+\[ R_{ges} = 3605 \Omega + 2 \cdot 490 \Omega = 4585 \Omega \]
+\[ I_{ges} = \frac{U}{R_{ges}} = \frac{3.3 V}{4585 \Omega} = 0.72 mA \]
+\[ U = R_{ges} \cdot I_{ges} = 4585 \Omega \cdot 0.72 mA = 0.705 V \]
+
+Somit ist unser errechneter Widerstand für beide Schaltungsteile verwendbar, da bei $49^{\circ} C$ die Spannung U minimal geringer wäre.
