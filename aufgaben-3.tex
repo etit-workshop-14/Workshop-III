@@ -89,7 +89,7 @@ Durch folgende Rechnungen konnten wir auf die Widerstandswerte schließen: \\
 Wie in der Aufgabenstellung gefordert, soll die Leistung des NTCs auf $15 mW$ beschränkt sein. Hierfür wird für den vorhandenen Arbeitsbereich ($25^{\circ} C - 100^{\circ} C$) eine Berechnung des Widerstands $R_1$ benötigt. Der Widerstand bildet mit dem variablen Widerstandswert des NTCs den Gesamtwiderstand, von welchem aus die Leistung des NTCs berechnet werden kann. Vor die Basis des Transistors wird ein Widerstand geschalten, für welchen gilt: $R_B >> R_1$. Somit ist der Strom $I_B$ in den Rechnungen vernachlässigbar klein.\\
 \\
 % http://www.vishay.com/docs/29049/ntcle100.pdf
-Widerstand des NTCs bei $25^{\circ} C: 10 k\Omega$; $150^{\circ} C: 182,6 \Omega$ \\
+Widerstand des NTCs bei $25^{\circ} C: 10 k\Omega$; $150^{\circ} C: 182,6 \Omega$ \cite{ntc} \\
 \\
 Berechnung des minimalen Widerstands $R_1$ zur Einhaltung der Leistungsvorgabe:
 \[ R_{ges} = 182.6 \Omega + R_1 \]
@@ -117,7 +117,19 @@ Da der NTC einen negativen Temperaturkoeffizienten besitzt, steigt sein Widersta
 
 \newpage
 
-Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die vor den LEDs geschalteten Widerstände eine Spannung von jeweils $1.1 V$ abfallen. Wählt man einen Widerstand von $680 \Omega$, so beträgt der Strom $1.618 mA$. Dabei fallen über der LED genau $2.2 V$ ab. %Quelle
+Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die vor den LEDs geschalteten Widerstände eine Spannung von jeweils $1.1 V$ abfallen. Wählt man einen Widerstand von $680 \Omega$, so beträgt der Strom $1.618 mA$. Dabei fallen über der LED genau $2.2 V$ ab. \cite{diode}
+
+\begin{figure}[htb]
+    \includegraphics[width=4cm]{./res/Luefter_2_Spice}
+    \caption{Aufbau der 2. Lüfterschaltung}
+    \label{fig:Lüfterschaltung2}
+\end{figure}
+
+%\begin{figure}[htb]
+%    \includegraphics[width=12cm]{./res/Luefter_2_Aufbau}
+%    \caption{Praktischer Aufbau der 2. Lüfterschaltung}
+%    \label{fig:Lüfterschaltung2Praktisch}
+%\end{figure}
 
 \subsubsection{Aufgabe 2.1: Rechnung Lüfterschaltung 1}
 
@@ -141,7 +153,7 @@ R_1 &= 969.23 \Omega \geq 181.5 \Omega
 \newpage
 \subsubsection{Aufgabe 2.2: Rechnung Lüfterschaltung 2}
 
-Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt dDer NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$.
+Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt dDer NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$. \cite{ntc}
 
 \[ R_{ges} = 1330 \Omega + R_1 + R_2\]
 \[ R_1 = R_2 \]
