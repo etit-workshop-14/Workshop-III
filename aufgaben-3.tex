@@ -111,12 +111,14 @@ R_1 &= 181.5 \Omega
 \end{split}
 }{}
 
+\noindent
 Daraus folgt, dass $R_1 > 181.5 \Omega$ gilt, da ansonsten über den NTC mehr als 15 mW abfallen würden. \\
 \\
 Da der NTC einen negativen Temperaturkoeffizienten besitzt, steigt sein Widerstand bei sinkender Betriebstemperatur und sinkt analog bei steigender Betriestemperatur. Daraus folgt ein geringerer Strom für Temperaturen unter $150^{\circ} C$ und damit einhergehend eine geringere Leistung am NTC. Unser Arbeitsbereich beschränkt sich auf 25 - 150 Grad, somit ist diese Folgerung ausreichend für unseren Anwendungsbereich. \\
 
 \newpage
 
+\noindent
 Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die vor den LEDs geschalteten Widerstände eine Spannung von jeweils $1.1 V$ abfallen. Wählt man einen Widerstand von $680 \Omega$, so beträgt der Strom $1.618 mA$. Dabei fallen über der LED genau $2.2 V$ ab. \cite{diode}
 
 \begin{figure}[htb]
@@ -125,11 +127,16 @@ Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die
     \label{fig:Lüfterschaltung2}
 \end{figure}
 
-%\begin{figure}[htb]
-%    \includegraphics[width=12cm]{./res/Luefter_2_Aufbau}
-%    \caption{Praktischer Aufbau der 2. Lüfterschaltung}
-%    \label{fig:Lüfterschaltung2Praktisch}
-%\end{figure}
+\begin{figure}[htb]
+    \includegraphics[width=12cm]{./res/Luefter_2_Aufbau}
+    \caption{Praktischer Aufbau der 2. Lüfterschaltung}
+    \label{fig:Lüfterschaltung2Praktisch}
+\end{figure}
+
+\noindent
+Notiz: Wir haben den NTC soweit außerhalb positioniert, um Interferenz mit den anderen Bauteilen (z.B. den Transistoren) zu vermeiden.
+
+\newpage
 
 \subsubsection{Aufgabe 2.1: Rechnung Lüfterschaltung 1}
 
@@ -150,7 +157,6 @@ R_1 &= 969.23 \Omega \geq 181.5 \Omega
 \end{split}
 }{}
 
-\newpage
 \subsubsection{Aufgabe 2.2: Rechnung Lüfterschaltung 2}
 
 Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt dDer NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$. \cite{ntc}
@@ -173,10 +179,30 @@ R_1 &= 490 \Omega \geq 181.5 \Omega
 \end{split}
 }{}
 
+\noindent
 Überprüfung des Widerstandswertes bei $50^{\circ} C$ Schaltschwelle
 
 \[ R_{ges} = 3605 \Omega + 2 \cdot 490 \Omega = 4585 \Omega \]
 \[ I_{ges} = \frac{U}{R_{ges}} = \frac{3.3 V}{4585 \Omega} = 0.72 mA \]
 \[ U = R_{ges} \cdot I_{ges} = 4585 \Omega \cdot 0.72 mA = 0.705 V \]
 
+\noindent
 Somit ist unser errechneter Widerstand für beide Schaltungsteile verwendbar, da bei $49^{\circ} C$ die Spannung U minimal geringer wäre.
+
+\subsubsection{Diskussion}
+
+Wie in der Aufgabenstellung gefordert, erwärmten wir den NTC, um die Funktionalität der Schaltung zu überprüfen. Dabei benutzten wir abwechselnd ein Feuerzeug (Abstand 10cm) und einen Fön (Abstand 5cm), um unterschiedlich präzise Ergebnisse zu erzielen. Beim praktischen Test funktionierte die Schaltung wie erwartet, denn die erste LED leuchtete ab ca. $50^{\circ} C$. Ab einer weiteren Erhitzung leuchtete auch die zweite LED nach kurzer Zeit. Beim Abkühlen erlosch die zweite LED zuerst, gefolgt von der ersten LED nach einer zeitlichen Verzögerung. Somit wäre unsere Schaltung als Lüfterschaltung praxistauglich.
+
+
+\newpage
+\subsection{Lichtschranke}
+
+\subsubsection{Materialien \& Methoden}
+
+Spannungsverlauf von $U_{Out}$ bei bewegtem Körper:
+
+\begin{figure}[htb]
+    \includegraphics[width=10cm]{./res/Lichtschranke_Spannungsverlauf}
+    \caption{Spannungsverlauf von $U_{Out}$}
+    \label{fig:SpannungsverlaufUout}
+\end{figure}
