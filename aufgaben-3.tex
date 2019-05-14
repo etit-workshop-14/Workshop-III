@@ -206,3 +206,71 @@ Spannungsverlauf von $U_{Out}$ bei bewegtem Körper:
     \caption{Spannungsverlauf von $U_{Out}$}
     \label{fig:SpannungsverlaufUout}
 \end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=10cm]{./res/Kondensator_Entladung}
+    \caption{Schaltung zur Messung der Entladung eines Kondensators}
+    \label{fig:KondensatorEntladung}
+\end{figure}
+
+\newpage
+
+\begin{figure}[htb]
+    \includegraphics[width=10cm]{./res/Kondensator_Entladung_Messung}
+    \caption{Gemessene Entladung des Kondensators}
+    \label{fig:KondensatorEntladungMess}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=10cm]{./res/Kondensator_Lichtschranke_1}
+    \caption{Schaltung zur Messung der Ladung und Entladung eines Kondensators durch eine Lichtschranke}
+    \label{fig:KondensatorLadungLichtschranke}
+\end{figure}
+
+\newpage
+
+\begin{figure}[htb]
+    \includegraphics[width=10cm]{./res/Kondensator_1_Lichtschranke_Messung}
+    \caption{Gemessene Ladung und Entladung des Kondensators bei 1 Lichtschranke}
+    \label{fig:KondensatorLadungEntladungMess}
+\end{figure}
+
+\newpage
+\subsubsection{Entladung Kondensator}
+
+\[
+U_{c}(t)=U_{0} \cdot e^{- \frac{t}{R_{C} \cdot C}}
+\]
+
+\begin{table}[htb]
+\centering
+\caption{Entladung Kondensator (errechnet)}
+\label{KondensatorRechnung}
+\begin{tabular}{c|cccccc}
+\toprule
+t & 0 sec & 1 sec & 2 sec & 3 sec & 4 sec & 5 sec \\
+\midrule
+$U_{c}(t)$ & 3.3V & 2.09V & 1.33V & 0.84V & 0.54V & 0.34V \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\caption{Entladung Kondensator (gemessen)}
+\label{KondensatorMessung}
+\begin{tabular}{c|cccccc}
+\toprule
+t & 0 sec & 1 sec & 2 sec & 3 sec & 4 sec & 5 sec \\
+\midrule
+$U_{c}(t)$ & 3.3V & 2.089V & 1.31V & 0.835V & 0.527V & 0.335V \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Laden des Kondensators}
+
+Um den Kondensator zu laden, schalten wir zwischen Diode und Transistor einen invertierenden Transistor mit Widerstandsverhältnis = 1, um das gewünschte Schaltverhalten der Lichtschranke zu erzielen.\\
+Bei Durchtrennen der Lichtschranke lädt sich der Kondensator über den gewählten $470 \Omega$ Widerstand am Emitter des Invertierers sofort voll auf und endlädt sich, wie im vorherigen Aufgabenteil langsam, über den $220 k \Omega$ Widerstand bei Freilassen der Lichtschranke.\\
+Die Diode zwischen Kondensator und Invertierer dient dazu, die Entladung des Kondensators auf den Widerstand mit $220 k \Omega$ zu beschränken.
+
