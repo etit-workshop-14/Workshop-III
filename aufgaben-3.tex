@@ -47,9 +47,9 @@ Lichtschranke &
 \hline
 Transistor & BC547C (STMicroelectronics) \\
 \hline
-Speicherkondensatoren & diverse (Tolderanz $\pm 20\%$) \\
+Speicherkondensatoren & diverse (Toleranz $\pm 20\%$) \\
 \hline
-Kohleschichtwiderstände & diverse (Tolderanz $\pm 5\%$) \\
+Kohleschichtwiderstände & diverse (Toleranz $\pm 5\%$) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -114,7 +114,7 @@ R_1 &= 181.5 \Omega
 \noindent
 Daraus folgt, dass $R_1 > 181.5 \Omega$ gilt, da ansonsten über den NTC mehr als 15 mW abfallen würden. \\
 \\
-Da der NTC einen negativen Temperaturkoeffizienten besitzt, steigt sein Widerstand bei sinkender Betriebstemperatur und sinkt analog bei steigender Betriestemperatur. Daraus folgt ein geringerer Strom für Temperaturen unter $150^{\circ} C$ und damit einhergehend eine geringere Leistung am NTC. Unser Arbeitsbereich beschränkt sich auf 25 - 150 Grad, somit ist diese Folgerung ausreichend für unseren Anwendungsbereich. \\
+Da der NTC einen negativen Temperaturkoeffizienten besitzt, steigt sein Widerstand bei sinkender Betriebstemperatur und sinkt analog bei steigender Betriebstemperatur. Daraus folgt ein geringerer Strom für Temperaturen unter $150^{\circ} C$ und damit einhergehend eine geringere Leistung am NTC. Unser Arbeitsbereich beschränkt sich auf 25 - 150 Grad, somit ist diese Folgerung ausreichend für unseren Anwendungsbereich. \\
 
 \newpage
 
@@ -134,13 +134,13 @@ Eine gelbe LED besitzt einen Spannungsabfall von $2.2 V$. Deshalb muss über die
 \end{figure}
 
 \noindent
-Notiz: Wir haben den NTC soweit außerhalb positioniert, um Interferenz mit den anderen Bauteilen (z.B. den Transistoren) zu vermeiden.
+Notiz: Wir haben den NTC soweit außerhalb positioniert, um Interferenz mit den anderen Bauteilen (z.B. den Transistoren) zu vermeiden. Wir schalten vor der Diode einen Widerstand mit $100 k \Omega$, um eine Verfälschung unserer Rechnung vorzubeugen und für jede Temperatur den zulässigen Diodenstrom einhalten zu können.
 
 \newpage
 
 \subsubsection{Aufgabe 2.1: Rechnung Lüfterschaltung 1}
 
-Laut Aufgabe soll ein Lüfter ab einer Temperatur von $49^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $50^{\circ} C$ einen Widerstandswert von $3605 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Da die Schaltschwelle bei $49^{\circ} C$ stattfinden soll, -nehmen wir als Widerstandswert des NTCs $3600 \Omega$ an.
+Laut Aufgabe soll ein Lüfter ab einer Temperatur von $49^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $50^{\circ} C$ einen Widerstandswert von $3605 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Da die Schaltschwelle bei $49^{\circ} C$ stattfinden soll, nehmen wir als Widerstandswert des NTCs $3600 \Omega$ an.
 
 \[ R_{ges} = 3600 \Omega + R_1 \]
 \[ I_{ges} = \frac{U}{R_{ges}} = \frac{3.3 V}{3600 \Omega + R_1} \]
@@ -159,7 +159,7 @@ R_1 &= 969.23 \Omega \geq 181.5 \Omega
 
 \subsubsection{Aufgabe 2.2: Rechnung Lüfterschaltung 2}
 
-Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt dDer NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$. \cite{ntc}
+Laut Aufgabe soll ein zweiter Lüfter ab einer Temperatur von $78^{\circ} C$ in Betrieb genommen werden. Der NTC besitzt bei $78^{\circ} C$ einen Widerstandswert von ca. $1330 \Omega$. Um eine Schaltung des Lüfters bei dieser Temperatur zu konzipieren, muss der Widerstand $R_1$ passend gewählt werden. Außerdem besitzt der NTC bei $80^{\circ} C$ einen Widerstandswert von $1256 \Omega$. \cite{ntc}
 
 \[ R_{ges} = 1330 \Omega + R_1 + R_2\]
 \[ R_1 = R_2 \]
@@ -258,32 +258,20 @@ Spannungsverlauf von $U_{Out}$ bei bewegtem Körper:
 \newpage
 \subsubsection{Entladung Kondensator}
 
-\[
+\gleichung{
 U_{c}(t)=U_{0} \cdot e^{- \frac{t}{R_{C} \cdot C}}
-\]
+}{EntladungKondensatorFormel}
 
 \begin{table}[htb]
 \centering
-\caption{Entladung Kondensator (errechnet)}
+\caption{Entladung Kondensator}
 \label{KondensatorRechnung}
 \begin{tabular}{c|cccccc}
 \toprule
 t & 0 sec & 1 sec & 2 sec & 3 sec & 4 sec & 5 sec \\
 \midrule
-$U_{c}(t)$ & 3.3V & 2.09V & 1.33V & 0.84V & 0.54V & 0.34V \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[htb]
-\centering
-\caption{Entladung Kondensator (gemessen)}
-\label{KondensatorMessung}
-\begin{tabular}{c|cccccc}
-\toprule
-t & 0 sec & 1 sec & 2 sec & 3 sec & 4 sec & 5 sec \\
-\midrule
-$U_{c}(t)$ & 3.3V & 2.089V & 1.31V & 0.835V & 0.527V & 0.335V \\
+$U_{c}(t)$ errechnet & 3.3V & 2.09V & 1.33V & 0.84V & 0.54V & 0.34V \\
+$U_{c}(t)$ gemessen & 3.3V & 2.089V & 1.31V & 0.835V & 0.527V & 0.335V \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -291,7 +279,7 @@ $U_{c}(t)$ & 3.3V & 2.089V & 1.31V & 0.835V & 0.527V & 0.335V \\
 \subsubsection{Laden des Kondensators}
 
 Um den Kondensator zu laden, schalten wir zwischen Diode und Transistor einen invertierenden Transistor mit Widerstandsverhältnis = 1, um das gewünschte Schaltverhalten der Lichtschranke zu erzielen.\\
-Bei Durchtrennen der Lichtschranke lädt sich der Kondensator über den gewählten $470 \Omega$ Widerstand am Emitter des Invertierers sofort voll auf und endlädt sich, wie im vorherigen Aufgabenteil langsam, über den $220 k \Omega$ Widerstand bei Freilassen der Lichtschranke.\\
+Bei Durchtrennen der Lichtschranke lädt sich der Kondensator über den gewählten $470 \Omega$ Widerstand am Emitter des Invertierers sofort voll auf und entlädt sich, wie im vorherigen Aufgabenteil langsam, über den $220 k \Omega$ Widerstand bei Freilassen der Lichtschranke.\\
 Die Diode zwischen Kondensator und Invertierer dient dazu, die Entladung des Kondensators auf den Widerstand mit $220 k \Omega$ zu beschränken.
 
 \subsubsection{Geschwindigkeitsmessanlage}
@@ -307,7 +295,7 @@ Die Diode zwischen Kondensator und Invertierer dient dazu, die Entladung des Kon
 \begin{figure}[htb]
     \includegraphics[width=7cm]{./res/Lichtschranke_2_medium_Messung}
     \caption{Ladung der Kondensatoren bei mittlerer Durchquerung}
-    \label{fig:DurchquerungMediuml}
+    \label{fig:DurchquerungMedium}
 \end{figure}
 
 \begin{figure}[htb]
@@ -315,3 +303,61 @@ Die Diode zwischen Kondensator und Invertierer dient dazu, die Entladung des Kon
     \caption{Ladung der Kondensatoren bei langsamer Durchquerung}
     \label{fig:DurchquerungLangsam}
 \end{figure}
+
+Die Zeit wurde mit der Formel zur Entladung des Kondensators (\ref{EntladungKondensatorFormel}) durch Auflösen nach $t$ berechnet.
+\\
+\\
+Formel zur Berechnung der Geschwindigkeit (konstant ohne Beschleunigung):
+
+\gleichung{
+v=\frac{s}{t}=\frac{8 cm}{t}
+}{geschw}
+
+\newpage
+
+\begin{table}[htb]
+\centering
+\caption{2 Lichtschranken Messungen}
+\label{Lichtschranken2Messung}
+\begin{tabular}{c|cccc}
+\toprule
+Messung & 1 & 2 & 3 \\
+\midrule
+Gemessene Spannung & 1.3 V & 0.8V & 0.45V \\
+Kondensatorspannung & 2.6V & 1.6V & 0.9V \\
+Resultierende Zeit & 0.52 sec & 1.59 sec & 2.86 sec \\
+Resultierende Geschwindigkeit & 15.38 $\frac{cm}{sec}$ & 5.08 $\frac{cm}{sec}$ & 2.78 $\frac{cm}{sec}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Fragen zur Gesamtschaltung}
+
+Bei voller Ladung von $C_{1}$ wird die Hälfte der Ladung auf $C_{2}$ übertragen. Somit beträgt die maximale übertragene Ladung von $C_{1}$ auf $C_{2}$:
+
+\gleichung{
+\begin{split}
+Q_{1}&=C_{1} \cdot U_{1}
+\\
+Q_{2}&=\frac{Q_{1}}{2}
+\\
+&=\frac{10 \cdot 10^{-6} F \cdot 3.3 V}{2}
+\\
+&=16.5 \mu C
+\end{split}
+}{}
+
+Somit beträgt die maximale Ladung von $C_{2}$ bei vollem $C_{1}$ $16.5 \mu C$
+\\
+\\
+Da sich durch den Ladungsausgleich beider Kondensatoren die Spannung halbiert, muss die gemessene Spannung verdoppelt in Betracht gezogen werden. Ansonsten würde die Geschwindigkeit verdoppelt errechnet werden. Durch den Abstand und die errechnete Zeit lässt sich dann die Geschwindigkeit errechnen (\ref{geschw}). 
+\\
+Bei der Entladung kann auch ein Spannungsabfall stattfinden, da zwischen den beiden Kondensatoren keine ideale Leitung liegt. Diese Ungenauigkeiten können jedoch aufgrund von gerundeten Ergebnissen vernachlässigt werden.
+
+\subsubsection{Diskussion}
+
+Beim praktischen Versuch zur Ermittlung der Entladungskurve stürzte uns das Board bei jeder Messung ab. Erst nach Recherche fanden wir heraus, dass ein Vorwiderstand vor dem Kondensator einen Kurzschluss verhindert. Davon abgesehen funktionierte unsere konzipierte Schaltung der Aufgabenstellung gegenüber einwandfrei.
+\\
+Bei der Geschwindigkeitsmessung bauten wir einen Invertierer ein, um die Lichtschranke an unser Schaltverhalten anzupassen. Nach dieser Anpassung funktionierte die Messung wie erwartet.
+\\
+Bei der endgültigen Geschwindigkeitsmessung stimmten die nach der Messung errechneten Werte mit der tatsächlichen Zeit überein. Deshalb schließen wir auf eine konstante Funktionalität unserer konzipierten Schaltung.
