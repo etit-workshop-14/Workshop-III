@@ -55,23 +55,71 @@ Kohleschichtwiderstände & diverse (Toleranz $\pm 5\%$) \\
 \end{table}
 
 \clearpage
-\section{Einleitung}
-
-\subsection{Motivation}
-
-
-\subsection{Literaturrecherche}
-
-
-\clearpage
 \section{Aufgaben}
 
 \subsection{Lüfterschaltung}
 
+\subsection{Literaturrecherche}
+
+a)\\
+Im Bereich der temperaturabhängigen Bauteile muss zwischen aktiven und passiven Elementen
+unterschieden werden. Aktive Temperatursensoren erzeugen selbstständig eine auszuwertende
+Spannung oder einen Strom und können ohne Versorgung betrieben werden. Passive Sensoren
+hingegen benötigen zum Betrieb eine Versorgungsspannung.\\
+Ein Beispiel für ein passive temperaturabhängige Bauteile sind NTC/PTC-Widerstände. Diese Bauteile
+ändern aufgrund der Umgebungstemperatur ihren Widerstandswert, welcher wiederum Einfluss auf
+eine abzugreifende Messspannung hat.\\
+Ein aktives temperaturabhängiges Bauteil ist das Thermoelement. Dieses erzeugt mittels zwei
+unterschiedlicher Metalle eine Spannungsdifferenz von etwa $10 \mu V$ pro $1^{\circ} C$ Temperaturänderung
+entlang des Elements. Diese Spannung tritt aufgrund des sog. Seebeck-Effekts auf und kann
+gemessen und ausgewertet werden.\\
+Ein weiteres temperaturabhängiges Bauteil ist der Bimetallschalter, der die Zustände „geöffnet“ und
+„geschlossen“ haben kann. Der Bimetallschalter besteht aus zwei verbundenen Metallen mit
+unterschiedlicher Temperaturausdehnung, wodurch sich der Metallsteifen bei Erwärmung biegt und
+einen Kontakt schließt oder öffnet.\\
+\\
+b) \\
+NTC:\\
+Ein NTC-Widerstand oder auch Heißleiter genannt, ist ein temperaturabhängiges Bauteil. Genauer ist
+der Widerstandswert abhängig von der Temperatur des Widerstands. Hierbei steht die Abkürzung
+NTC für die englische Beschreibung „negative temperature coefficient“. Sein Widerstand sinkt
+dementsprechend mit zunehmender Temperatur.\\
+NTC-Widerstände werden nach ihrem Widerstandswert bei Referenztemperatur von $25^{\circ} C$ Celsius
+spezifiziert.\\
+Veranschaulicht wird das Verhalten eines NTC/PTC-Widerstands durch zwei entgegengesetzt oder
+gleich orientierte Pfeile in Schaltsymbol entsprechend des Widerstandsverhaltens bei steigender
+Temperatur.\\
+NTC-Widerstände bestehen aus Metalloxiden von Kupfer, Eisen, Nickel, Kobalt, Mangan und Titan,
+welches mit Bindemitteln vermengt ist. Typische Bauformen sind Zylinderausführungen, Platten,
+SMD-Elemente zur Platinenanwendung und Tropfen. Der Anschluss der Kontakte erfolgt über
+metallisierte Oberflächen.\\
+Der Größte Einsatzbereich von NTC-Widerständen besteht in der Funktion als Temperatursensor. Als
+passive Temperaturfühler werden NTCs in jeglichen Thermometern eingesetzt. Beispielhaft sind
+Anwendungen in Klimaanlagen für Fahrzeuge und Gebäude, zur Temperaturüberwachung in
+Maschinen und elektrischen Geräten und der Einsatz in Wetterstationen. Außerdem werden NTCs als
+Anlasswiderstände von Motoren in Geräten eingesetzt, in denen Stern-Dreieck-Schaltungen nicht
+wirtschaftlich oder realisierbar sind. Anwendung finden NTC-Widerstände ausschließlich in
+Anwendungen mit einem Temperaturbereich von $0^{\circ} C$ bis ca. $150^{\circ} C$, da ihr Widerstandswert nur in
+diesem Bereich verwertbare Werte liefert.\\
+Nachteile beim Einsatz von NTCs sind zudem die nicht linear verlaufende Widerstandskurve, die
+Ansprechzeit, die das Bauteil aufgrund seiner Masse benötigt um sich zu erwärmen oder abzukühlen
+und die Eigenerwärmung aufgrund des fließenden Stroms.\\
+\\
+\begin{figure}[htb]
+    \includegraphics[width=13cm]{./res/NTC_Kennlinie}
+    \caption{Kennlinie eines NTCs}
+    \label{fig:NTCKenn}
+\end{figure}
+
+\gleichung{
+R_T=R_N \cdot e^{B \cdot \left(\frac{1}{T} - \frac{1}{N}\right)}
+}{}
+
+\clearpage
 \subsubsection{Materialien \& Methoden}
 
 \begin{figure}[htb]
-    \includegraphics[width=4cm]{./res/Luefter_1_Spice}
+    \includegraphics[width=5.5cm]{./res/Luefter_1_Spice}
     \caption{Aufbau der 1. Lüfterschaltung}
     \label{fig:Lüfterschaltung1}
 \end{figure}
